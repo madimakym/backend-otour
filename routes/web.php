@@ -26,3 +26,7 @@ Route::get('/page1', function () {
 Route::get('/page2', function () {
     return view('/Page2/index');
  });
+
+ Route::get('/savourer', function () {
+    return view('/Savourer/index');
+ });
