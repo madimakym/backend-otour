@@ -52,3 +52,10 @@ html, body {
 .box.box-info {
     border-top-color: #660200;
 }
+
+.img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

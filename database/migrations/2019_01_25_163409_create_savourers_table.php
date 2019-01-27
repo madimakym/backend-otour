@@ -15,12 +15,16 @@ class CreateSavourersTable extends Migration
     {
         Schema::create('savourer', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('description');
-            $table->string('telephone');
-            $table->string('email');
-            $table->string('siteweb');
-            $table->string('categorie');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('siteweb')->nullable();
+            $table->string('categorie')->nullable();
+            $table->string('adresse')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('image')->nullable();
         });
     }
 

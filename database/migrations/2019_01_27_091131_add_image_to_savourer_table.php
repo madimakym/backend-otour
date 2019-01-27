@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCoordonneeToSavourerTable extends Migration
+class AddImageToSavourerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddCoordonneeToSavourerTable extends Migration
     public function up()
     {
         Schema::table('savourer', function (Blueprint $table) {
-            $table->string('latitude')->unique();
-            $table->string('longitude')->unique();
-            
+            $table->string('image')->unique();
         });
     }
 
@@ -28,8 +26,7 @@ class AddCoordonneeToSavourerTable extends Migration
     public function down()
     {
         Schema::table('savourer', function (Blueprint $table) {
-            $table->dropColumn('latitude');
-            $table->dropColumn('longitude');
+            $table->dropColumn('image');
         });
     }
 }

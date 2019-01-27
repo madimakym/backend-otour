@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="content-header">
-    <h1> SAVOURER <small>Ajouter une adresse</small> </h1>
+    <h1> SAVOURER <small>/ Editer une adresse</small> </h1>
 </section>
       
 <section class="content container-fluid">
@@ -18,7 +18,7 @@
         @endif
 
         <section class="content">
-            <form action="{{ route('savourer.update' , $resultat->id) }}" method="POST">
+            <form action="{{ route('savourer.update' , $resultat->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                       
@@ -64,6 +64,16 @@
                                     <label>Longitude:</label>
                                     <input type="text" name="longitude" class="form-control" value="{{ $resultat->longitude }}">
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Image</label>
+                                    <input type="file" id="exampleInputFile" name="image" value="">
+                                    {{-- <p class="help-block">Example block-level help text here.</p> --}}
+                                </div>
+
+                                <input type="text" hidden name="old_image" value="{{$resultat->image}}">
+
+
                               </div>
                             </div>
                           </div>        
@@ -97,6 +107,15 @@
                               </div>
                             </div>
                           </div>
+
+                          <div class="col-md-4">
+                                <div class="box box-success">
+                                <div class="box-header">
+                                    <h3 class="box-title">Visuel</h3>
+                                </div>
+                                    <br> <img src="{{ url('storage/'.$resultat->image) }}" alt="" class="img-responsive img-center" width="100%" /> <br>
+                                </div>
+                        </div>
                         </div>
             <button type="submit" class="btn btn-primary btn-xs">Modifier</button> 
             </form>

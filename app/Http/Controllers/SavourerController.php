@@ -30,18 +30,22 @@ class SavourerController extends Controller
             'categorie' => 'required',
         ]);
   
+
         $libelle = request('libelle');  
-        $description = request('description');  
+        $description = request('description', null);  
         $telephone = request('telephone');  
         $adresse = request('adresse');  
         $categorie_array = request('categorie');  
-        $email = request('email');  
-        $siteweb = request('siteweb');  
-        $latitude = request('latitude');  
-        $longitude = request('longitude');  
+        $email = request('email', null);  
+        $siteweb = request('siteweb', null);  
+        $latitude = request('latitude', null);  
+        $longitude = request('longitude', null);
 
+
+        $path = $request->file('image', null)->store('upload');
+        
+        
         $categorie = implode(", " , $categorie_array);
-
         DB::table('savourer')->insert(
             [
                 'title' => $libelle,
@@ -52,11 +56,14 @@ class SavourerController extends Controller
                 'categorie' => $categorie,
                 'siteweb' => $siteweb,
                 'latitude' => $latitude,
-                'longitude' => $longitude
+                'longitude' => $longitude,
+                'image' => $path,
             ]
         );
         return redirect()->route('savourer.index')
                             ->with('success','Product created successfully.');
+
+        echo $path;
     }
 
     public function show($id)
@@ -90,6 +97,15 @@ class SavourerController extends Controller
         $categorie_array = $input['categorie'];
         
         $categorie = implode(", " , $categorie_array);
+        $old_image = $input['old_image'];
+        $path = $request->file('image');
+
+        if($path == null){
+            $new_image =  $old_image;
+          
+        } else {
+            $new_image = $request->file('image', null)->store('upload');
+        }
 
         DB::table('savourer')
             ->where('id', '=', $id)
@@ -103,13 +119,13 @@ class SavourerController extends Controller
                         'latitude' => $latitude,
                         'longitude' => $longitude,
                         'description' => $description,
-                        'categorie' => $categorie
+                        'categorie' => $categorie,
+                        'image' => $new_image
                     )
                 );
         return redirect()->route('savourer.index')
                         ->with('success','Product modifié');
     }
-
 
     public function destroy($id)
     {
