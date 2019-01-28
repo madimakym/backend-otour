@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="content-header">
-    <h1> SAVOURER <small>Ajouter une adresse</small> </h1>
+    <h1> SAVOURER <small>/Ajouter une adresse</small> </h1>
 </section>
       
 <section class="content container-fluid">
@@ -104,8 +104,11 @@
                                 </div>
                                 <!-- /.box -->
                             </div>
+
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-block btn-primary btn-sm">ENREGISTRER</button> 
+                            </div> 
                         </div>
-                <button type="submit" class="btn btn-primary">Enregistrer</button> 
             </form>
         </section>
     </div>

@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="content-header">
-    <h1> SAVOURER <small>Listes des adresses</small> </h1>
+    <h1> SAVOURER <small>/Listes des adresses</small> </h1>
 </section>
 
       
@@ -52,15 +52,6 @@
                     </tr>
                 @endforeach
                     </tbody>
-                    <tfoot>
-                      <tr>
-                        <th>Libelle</th>
-                        <th>Adresse</th>
-                        <th>Telephone</th>
-                        <th>Categorie</th>
-                        <th>Action</th>
-                      </tr>
-                    </tfoot>
                   </table>
                 </div>
         </div>

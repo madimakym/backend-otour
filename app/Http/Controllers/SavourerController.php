@@ -11,7 +11,7 @@ class SavourerController extends Controller
   
     public function index()
     {
-        $resultats = DB::table('savourer')->select('id', 'title', 'adresse', 'telephone', 'categorie')->get();;
+        $resultats = DB::table('savourer')->select('id', 'title', 'adresse', 'telephone', 'categorie')->get();
         return view('savourer.index')->with('resultats', $resultats);
     }
 
@@ -61,7 +61,7 @@ class SavourerController extends Controller
             ]
         );
         return redirect()->route('savourer.index')
-                            ->with('success','Product created successfully.');
+                            ->with('success','Adresse ajoutée.');
 
         echo $path;
     }
@@ -124,13 +124,21 @@ class SavourerController extends Controller
                     )
                 );
         return redirect()->route('savourer.index')
-                        ->with('success','Product modifié');
+                        ->with('success','Adresse modifiée');
     }
 
     public function destroy($id)
     {
         DB::table('savourer')->where('id', '=', $id)->delete();
         return redirect()->route('savourer.index')
-                        ->with('success','Product supprimé');
+                        ->with('success','Adresse supprimée');
     }
+
+    public function api_savourer()
+    {
+        $resultats = DB::table('savourer')->select('*')->get();
+        return response()->json($resultats);
+    }
+
+
 }

@@ -46,9 +46,11 @@
                             <br> <img src="{{ url('storage/'.$resultat->image) }}" alt="" class="img-responsive img-center" width="100%" /> <br>
                         </div>
                 </div>
-
+            
+                <div class="col-md-4">
+                    <a href="../savourer" class="btn btn-block btn-primary btn-sm">RETOUR</a>
+                </div> 
             </div>
-            <a href="../savourer" class="btn btn-primary btn-xs ajouterContenu">Retour</a> 
         </section>
     </div>
 

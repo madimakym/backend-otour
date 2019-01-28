@@ -21,11 +21,10 @@
             <form action="{{ route('savourer.update' , $resultat->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                      
-            <div class="row">
-              <div class="col-md-8">
-                <div class="box box-info">
-                              <div class="box-body">
+                <div class="row">
+                <div class="col-md-8">
+                    <div class="box box-info">
+                        <div class="box-body">
                                 <div class="form-group">
                                   <label>Libelle:</label>
                                   <input type="text" name="libelle" value="{{ $resultat->title }}" class="form-control">
@@ -70,58 +69,56 @@
                                     <input type="file" id="exampleInputFile" name="image" value="">
                                     {{-- <p class="help-block">Example block-level help text here.</p> --}}
                                 </div>
-
                                 <input type="text" hidden name="old_image" value="{{$resultat->image}}">
-
-
                               </div>
-                            </div>
-                          </div>        
+                    </div> 
+                </div>        
 
-                          <div class="col-md-4">
-                            <div class="box box-success">
-                              <div class="box-header">
-                                <h3 class="box-title">Catégories</h3>
+                <div class="col-md-4">
+                    <div class="box box-success">
+                        <div class="box-header">
+                            <h3 class="box-title">Catégories</h3>
                                 <br> <span>{{ $resultat->categorie }}</span>
-                              </div>
-                              <div class="box-body">
-                                <div class="form-group">
-                                    <input type="checkbox" name="categorie[]" class="minimal" value="restaurant">
-                                    <label>Restaurant</label>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="checkbox" name="categorie[]" class="minimal" value="salon de the">
-                                    <label>Salon de thé</label>
-                                </div>
-
-                                <div class="form-group">
-                                   <input type="checkbox" name="categorie[]" class="minimal" value="boulangerie">
-                                    <label>Boulangerie</label>
-                                 </div>
-
-                                 <div class="form-group">
-                                    <input type="checkbox" name="categorie[]" class="minimal" value="fast-food">
-                                     <label>Fast-food</label>
-                                </div>
-                              </div>
                             </div>
-                          </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <input type="checkbox" name="categorie[]" class="minimal" value="restaurant">
+                                <label>Restaurant</label>
+                            </div>
 
-                          <div class="col-md-4">
-                                <div class="box box-success">
-                                <div class="box-header">
-                                    <h3 class="box-title">Visuel</h3>
-                                </div>
-                                    <br> <img src="{{ url('storage/'.$resultat->image) }}" alt="" class="img-responsive img-center" width="100%" /> <br>
-                                </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="categorie[]" class="minimal" value="salon de the">
+                                <label>Salon de thé</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="checkbox" name="categorie[]" class="minimal" value="boulangerie">
+                                <label>Boulangerie</label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="checkbox" name="categorie[]" class="minimal" value="fast-food">
+                                <label>Fast-food</label>
+                            </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="box box-success">
+                        <div class="box-header">
+                            <h3 class="box-title">Visuel</h3>
                         </div>
-            <button type="submit" class="btn btn-primary btn-xs">Modifier</button> 
-            </form>
-            <a href="/savourer" class="btn btn-primary btn-xs pull-right">Retour</a>  
-        </section>
-    </div>
+                        <br><img src="{{ url('storage/'.$resultat->image) }}" alt="" class="img-responsive img-center" width="100%" /> <br>
+                    </div>
+                </div>  
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-block btn-primary btn-sm">MODIFIER</button> 
+                </div>       
+            </div>
+        </form>
+    </section>
+</div>
 
 </section>
       
