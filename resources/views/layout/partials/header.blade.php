@@ -2,7 +2,7 @@
         <!-- Logo -->
         <a href="/" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <img src="assets/logo.jpg" width="100%">
+          {{-- <img src="assets/logo.jpg" width="100%"> --}}
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">

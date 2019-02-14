@@ -42,7 +42,6 @@
                           <form action="{{ route('savourer.destroy',$resultat->id) }}" method="POST">
                               <a class="btn btn-info btn-xs" href="{{ route('savourer.show',$resultat->id) }}">Details</a>
                               <a class="btn btn-primary btn-xs" href="{{ route('savourer.edit',$resultat->id) }}">Modifier</a>
-          
                               @csrf
                               @method('DELETE')
                               <button type="submit" class="btn btn-danger btn-xs">Supprimer</button> 
